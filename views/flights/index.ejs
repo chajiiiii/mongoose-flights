@@ -1,0 +1,25 @@
+<%- include("../partials/header") %>
+
+<h1>Flight Schedule</h1>
+<p>Here you can find flight information</p>
+
+<table>
+  <thead>
+    <th>Airline</th>
+    <th>Airport</th>
+    <th>Flight No.</th>
+    <th>Departs</th>
+  </thead>
+  <tbody>
+    <% flights.forEach(function(flight) { %>
+    <tr>
+      <tb><%= flight.airline %></tb>
+      <tb><%= flight.airport %></tb>
+      <tb><%= flight.flightNo %></tb>
+      <tb><%= flight.departs %></tb>
+    </tr>
+    <% }); %>
+  </tbody>
+</table>
+
+<%- include("../partials/footer") %>
