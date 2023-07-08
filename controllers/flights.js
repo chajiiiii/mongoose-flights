@@ -10,6 +10,22 @@ async function index(req, res) {
   }
 }
 
+function newFlight(req, res) {
+  res.render("flights/new", { errorMsg: "" });
+}
+
+async function create(req, res) {
+  try {
+    await Flight.create(req.body);
+    res.redirect("flights");
+  } catch (err) {
+    console.log(err);
+    res.render("flights/new", { errorMsg: err.message });
+  }
+}
+
 module.exports = {
   index,
+  new: newFlight,
+  create,
 };

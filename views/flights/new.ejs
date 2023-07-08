@@ -1,0 +1,33 @@
+<%- include("../partials/header") %>
+
+<h1>Add a New Flight</h1>
+
+<form action="/flights" method="POST">
+  <label
+    >Airline
+    <select name="airline">
+      <option value="" disabled selected>Select the Airline</option>
+      <option value="Korean">Korean Air</option>
+      <option value="Asiana">Asiana Airline</option>
+      <option value="Busan">Air Busan</option>
+    </select> </label
+  ><br />
+  <label
+    >Airport
+    <select name="airport">
+      <option value="" disabled selected>Select the Airport</option>
+      <option value="ICN">ICN - Incheon</option>
+      <option value="PUS">PUS - Busan</option>
+      <option value="GMP">GMP - Gimpo</option>
+      <option value="BKK">BKK - Bangkok</option>
+      <option value="LHR">LHR - London</option>
+    </select> </label
+  ><br />
+  <label>Flight No.<input type="number" name="flightNo" /></label><br />
+  <label>Departure<input type="datetime-local" name="departs" /></label><br />
+  <button type="submit">Save</button>
+</form>
+
+<p><%= errorMsg %></p>
+
+<%- include("../partials/footer") %>
