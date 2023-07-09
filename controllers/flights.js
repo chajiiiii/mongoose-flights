@@ -24,8 +24,62 @@ async function create(req, res) {
   }
 }
 
+async function show(req, res) {
+  const id = req.params.id;
+  try {
+    const flight = await Flight.findById(id);
+    res.render("flights/show", { flight });
+  } catch (err) {
+    console.log(err);
+    res.redirect("flights");
+  }
+}
+
+async function edit(req, res) {
+  const id = req.params.id;
+  try {
+    const flight = await Flight.findById(id);
+    res.render("flights/edit", { flight });
+  } catch (err) {
+    console.log(err);
+    res.redirect("flights/show");
+  }
+}
+
+// async function update(req, res) {
+//   const id = req.params.id;
+//   const destinationId = req.body.destinationId;
+//   const updatedAirport = req.body.destinations.airport;
+//   const updatedArrival = req.body.destinations.arrival;
+
+//   try {
+//     const flight = await Flight.findById(id);
+
+//     const destination = flight.destinations.id(destinationId);
+//     if (destination) {
+//       destination.airport = updatedAirport;
+//       destination.arrival = updatedArrival;
+//     } else {
+//       flight.destinations.push({
+//         airport: updatedAirport,
+//         arrival: updatedArrival,
+//       });
+//     }
+
+//     await flight.save();
+
+//     res.redirect(`flights/${id}`, { flight });
+//   } catch (err) {
+//     console.log(err);
+//     res.redirect("flights/edit");
+//   }
+// }
+
 module.exports = {
   index,
   new: newFlight,
   create,
+  show,
+  edit,
+  //   update,
 };

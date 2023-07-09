@@ -1,7 +1,6 @@
 <%- include("../partials/header") %>
 
-<h1>Flight Schedule</h1>
-<p>Here you can find flight information</p>
+<h1>Flight Details</h1>
 
 <table>
   <thead>
@@ -9,9 +8,9 @@
     <th>Airport</th>
     <th>Flight No.</th>
     <th>Departure Date/Time</th>
+    <th>Destination</th>
   </thead>
   <tbody>
-    <% flights.forEach(function(flight) { %>
     <tr>
       <% if(flight.airline === "Korean") { %>
       <td><%= flight.airline %> Air</td>
@@ -23,9 +22,10 @@
       <td><%= flight.airport %></td>
       <td><%= flight.flightNo %></td>
       <td><%= flight.departs %></td>
-      <td><a href="/flights/<%= flight.id %>">DETAIL</a></td>
+      <td><%= flight.destinations.airport %></td>
+      <td><%= flight.destinations.arrival %></td>
+      <td><a href="/flights/<%= flight.id%>/edit">EDIT</a></td>
     </tr>
-    <% }); %>
   </tbody>
 </table>
 
