@@ -8,7 +8,8 @@
     <th>Airline</th>
     <th>Airport</th>
     <th>Flight No.</th>
-    <th>Departure Date/Time</th>
+    <th>Departure Date</th>
+    <th>Departure Time</th>
   </thead>
   <tbody>
     <% flights.forEach(function(flight) { %>
@@ -16,13 +17,28 @@
       <% if(flight.airline === "Korean") { %>
       <td><%= flight.airline %> Air</td>
       <% } else if(flight.airline === "Asiana") { %>
-      <td><%= flight.airline %> Airline</td>
+      <td><%= flight.airline %> Airlines</td>
       <% } else if(flight.airline === "Busan") { %>
       <td>Air <%= flight.airline %></td>
       <% } %>
       <td><%= flight.airport %></td>
-      <td><%= flight.flightNo %></td>
-      <td><%= flight.departs %></td>
+
+      <% if(flight.airline === "Korean") { %>
+      <td>KE<%= flight.flightNo %></td>
+      <% } else if(flight.airline === "Asiana") { %>
+      <td>OZ<%= flight.flightNo %></td>
+      <% } else if(flight.airline === "Busan") { %>
+      <td>BX<%= flight.flightNo %></td>
+      <% } %>
+
+      <td>
+        <% if (flight.departsDate) { %> <%=
+        flight.departsDate.toLocaleDateString(undefined, { year: 'numeric',
+        month: 'short', day: 'numeric' }) %> <% } %>
+      </td>
+
+      <td><%= flight.departsTime.substring(0, 5) %></td>
+
       <td><a href="/flights/<%= flight.id %>">DETAIL</a></td>
     </tr>
     <% }); %>

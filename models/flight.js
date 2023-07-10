@@ -26,7 +26,8 @@ const flightSchema = new Schema({
     required: true,
   },
   flightNo: { type: Number, min: 10, max: 9999, required: true },
-  departs: { type: Date, default: Date.now },
+  departsDate: { type: Date, default: Date.now() + 365 * 24 * 60 * 60000 },
+  departsTime: { type: String, default: "12:30" },
   destinations: [destinationSchema],
 });
 
