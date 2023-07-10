@@ -7,8 +7,12 @@ const destinationSchema = new Schema({
     enum: ["ICN", "PUS", "GMP", "BKK", "LHR"],
     required: true,
   },
-  arrival: {
+  arrivalDate: {
     type: Date,
+    required: true,
+  },
+  arrivalTime: {
+    type: String,
     required: true,
   },
 });

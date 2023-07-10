@@ -19,7 +19,4 @@ router.get("/:id", flightsCtrl.show);
 // Edit an existing flight
 router.get("/:id/edit", flightsCtrl.edit);
 
-// Update the edited flight
-// router.put("/:id", flightsCtrl.update);
-
 module.exports = router;

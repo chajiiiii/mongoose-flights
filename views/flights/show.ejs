@@ -7,8 +7,11 @@
     <th>Airline</th>
     <th>Airport</th>
     <th>Flight No.</th>
-    <th>Departure Date/Time</th>
-    <th>Destination</th>
+    <th>Departure Date</th>
+    <th>Departure Time</th>
+    <th>Destination Airport</th>
+    <th>Arrival Date</th>
+    <th>Arrival Time</th>
   </thead>
   <tbody>
     <tr>
@@ -19,14 +22,29 @@
       <% } else if(flight.airline === "Busan") { %>
       <td>Air <%= flight.airline %></td>
       <% } %>
+
       <td><%= flight.airport %></td>
       <td><%= flight.flightNo %></td>
-      <td><%= flight.departs %></td>
-      <td><%= flight.destinations.airport %></td>
-      <td><%= flight.destinations.arrival %></td>
-      <td><a href="/flights/<%= flight.id%>/edit">EDIT</a></td>
+
+      <td>
+        <% if (flight.departsDate) { %> <%=
+        flight.departsDate.toLocaleDateString(undefined, { year: 'numeric',
+        month: 'short', day: 'numeric' }) %> <% } %>
+      </td>
+      <td><%= flight.departsTime.substring(0, 5) %></td>
+
+      <% flight.destinations.forEach(function(destination) { %>
+      <td><%= destination.airport %></td>
+      <td>
+        <% if (destination.arrivalDate) { %> <%=
+        destination.arrivalDate.toLocaleDateString(undefined, { year: 'numeric',
+        month: 'short', day: 'numeric' }) %> <% } %>
+      </td>
+      <td><%= destination.arrivalTime %></td>
+      <% }) %>
     </tr>
   </tbody>
 </table>
+<td><a href="/flights/<%= flight.id%>/edit">EDIT</a></td>
 
 <%- include("../partials/footer") %>

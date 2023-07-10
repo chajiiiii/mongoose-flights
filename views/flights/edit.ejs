@@ -7,8 +7,11 @@
     <th>Airline</th>
     <th>Airport</th>
     <th>Flight No.</th>
-    <th>Departure Date/Time</th>
-    <th>Destination</th>
+    <th>Departure Date</th>
+    <th>Departure Time</th>
+    <th>Destination Airport</th>
+    <th>Arrival Date</th>
+    <th>Arrival Time</th>
   </thead>
   <tbody>
     <tr>
@@ -21,10 +24,18 @@
       <% } %>
       <td><%= flight.airport %></td>
       <td><%= flight.flightNo %></td>
-      <td><%= flight.departs %></td>
       <td>
-        <form action="/flights/<%= flight.id %>?_method=PUT" method="POST">
-          <select name="destinations[0].airport">
+        <% if (flight.departsDate) { %> <%=
+        flight.departsDate.toLocaleDateString(undefined, { year: 'numeric',
+        month: 'short', day: 'numeric' }) %> <% } %>
+      </td>
+      <td><%= flight.departsTime.substring(0, 5) %></td>
+      <td>
+        <form
+          method="POST"
+          action="/flights/<%= flight._id %>/destinations"
+        >
+          <select name="airport">
             <option value="" disabled selected>Select the Airport</option>
             <option value="ICN">ICN - Incheon</option>
             <option value="PUS">PUS - Busan</option>
@@ -32,12 +43,17 @@
             <option value="BKK">BKK - Bangkok</option>
             <option value="LHR">LHR - London</option>
           </select>
-          <input type="datetime-local" name="destinations[0].arrival" />
-          <button type="submit">SAVE</button>
-        </form>
-      </td>
-    </tr>
-  </tbody>
-</table>
+        </td>
+        <td>
+          <input type="date" name="arrivalDate" />
+        </td>
+        <td>
+          <input type="time" name="arrivalTime" />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button type="submit">SAVE</button>
+</form>
 
 <%- include("../partials/footer") %>
