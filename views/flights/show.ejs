@@ -2,6 +2,7 @@
 
 <h1>Flight Details</h1>
 
+<h3>Departure Flight</h3>
 <table>
   <thead>
     <th>Airline</th>
@@ -26,25 +27,34 @@
       <td><%= flight.airport %></td>
       <td><%= flight.flightNo %></td>
 
-      <td>
-        <% if (flight.departsDate) { %> <%=
-        flight.departsDate.toLocaleDateString(undefined, { year: 'numeric',
-        month: 'short', day: 'numeric' }) %> <% } %>
-      </td>
+      <td><%= flight.departsDate.toLocaleDateString() %></td>
       <td><%= flight.departsTime.substring(0, 5) %></td>
 
       <% flight.destinations.forEach(function(destination) { %>
       <td><%= destination.airport %></td>
-      <td>
-        <% if (destination.arrivalDate) { %> <%=
-        destination.arrivalDate.toLocaleDateString(undefined, { year: 'numeric',
-        month: 'short', day: 'numeric' }) %> <% } %>
-      </td>
+      <td><%= destination.arrivalDate.toLocaleDateString() %></td>
       <td><%= destination.arrivalTime %></td>
       <% }) %>
     </tr>
   </tbody>
 </table>
+
+<h3>Tickets</h3>
+<table>
+  <thead>
+    <th>Seat No.</th>
+    <th>Price</th>
+  </thead>
+  <tbody>
+    <% tickets.forEach(function(ticket) { %>
+    <tr>
+      <td><%= ticket.seat %></td>
+      <td><%= ticket.price %></td>
+    </tr>
+    <% }) %>
+  </tbody>
+</table>
+
 <td><a href="/flights/<%= flight.id%>/edit">EDIT</a></td>
 
 <%- include("../partials/footer") %>

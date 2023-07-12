@@ -3,7 +3,7 @@ const Flight = require("../models/flight");
 async function create(req, res) {
   const flight = await Flight.findById(req.params.id);
 
-  console.log(req.body, req.params.id);
+  // console.log(req.body, req.params.id);
   flight.destinations.push(req.body);
   try {
     await flight.save();

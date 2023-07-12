@@ -31,11 +31,7 @@
       <td>BX<%= flight.flightNo %></td>
       <% } %>
 
-      <td>
-        <% if (flight.departsDate) { %> <%=
-        flight.departsDate.toLocaleDateString(undefined, { year: 'numeric',
-        month: 'short', day: 'numeric' }) %> <% } %>
-      </td>
+      <td><%= flight.departsDate.toLocaleDateString() %></td>
 
       <td><%= flight.departsTime.substring(0, 5) %></td>
 

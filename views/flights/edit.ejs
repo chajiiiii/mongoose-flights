@@ -25,15 +25,13 @@
       <td><%= flight.airport %></td>
       <td><%= flight.flightNo %></td>
       <td>
-        <% if (flight.departsDate) { %> <%=
-        flight.departsDate.toLocaleDateString(undefined, { year: 'numeric',
-        month: 'short', day: 'numeric' }) %> <% } %>
+        <%= flight.departsDate.toLocaleDateString() %>
       </td>
       <td><%= flight.departsTime.substring(0, 5) %></td>
       <td>
         <form
           method="POST"
-          action="/flights/<%= flight._id %>/destinations"
+          action="/flights/<%= flight.id %>/destinations"
         >
           <select name="airport">
             <option value="" disabled selected>Select the Airport</option>

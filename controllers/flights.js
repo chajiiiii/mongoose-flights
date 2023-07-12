@@ -1,8 +1,12 @@
 const Flight = require("../models/flight");
+const Ticket = require("../models/ticket");
 
 async function index(req, res) {
   try {
-    const flights = await Flight.find({});
+    const flights = await Flight.find({}).sort({
+      departsDate: 1,
+      departsTime: 1,
+    });
     res.render("flights/index", { flights });
   } catch (err) {
     console.log(err);
@@ -31,7 +35,8 @@ async function show(req, res) {
   const id = req.params.id;
   try {
     const flight = await Flight.findById(id);
-    res.render("flights/show", { flight });
+    const tickets = await Ticket.find({ flight: flight._id });
+    res.render("flights/show", { flight, tickets });
   } catch (err) {
     console.log(err);
     res.redirect("flights");
