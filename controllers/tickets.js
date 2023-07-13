@@ -22,6 +22,8 @@ async function create(req, res) {
   //   } catch (err) {
   //     console.log(err);
   //   }
+  console.log(`flightId!!!!! ${flightId}`);
+  console.log(`flightId!!!!! ${flightId._id}`);
   res.redirect(`/flights/${flightId._id}`);
 }
 

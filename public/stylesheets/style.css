@@ -1,8 +1,51 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: "Ubuntu", sans-serif;
 }
 
 a {
-  color: #00B7FF;
+  color: #006aff;
+}
+
+nav > a {
+  text-decoration: none;
+}
+
+th {
+  padding: 2rem;
+  color: navy;
+  border-bottom: solid 1px black;
+}
+
+td {
+  text-align: center;
+  border-bottom: solid 1px darkgrey;
+}
+
+h1 {
+  margin: 0;
+  padding: 3rem 0 3rem 0;
+}
+
+label {
+  display: inline-block;
+  padding-bottom: 0.7rem;
+}
+
+.details {
+  display: inline-block;
+  padding-top: 1rem;
+}
+
+.tickets {
+  padding-top: 5rem;
+}
+
+footer {
+  padding-top: 5rem;
+}
+
+footer > a {
+  text-decoration: none;
+  color: navy;
 }

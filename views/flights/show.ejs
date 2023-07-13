@@ -3,8 +3,8 @@
 <h1>Flight Details</h1>
 
 <h3>Departure Flight</h3>
-<table>
-  <thead>
+<table class="all-flight">
+  <thead class="all-flight-thead">
     <th>Airline</th>
     <th>Airport</th>
     <th>Flight No.</th>
@@ -38,9 +38,9 @@
     </tr>
   </tbody>
 </table>
-<a href="/flights/<%= flight.id%>/edit">Edit Flight</a>
+<a href="/flights/<%= flight.id%>/edit" class="details">Edit Flight</a>
 
-<h3>Tickets</h3>
+<h3 class="tickets">Tickets</h3>
 <table>
   <thead>
     <th>Seat No.</th>
@@ -55,6 +55,6 @@
     <% }) %>
   </tbody>
 </table>
-<a href="/tickets/<%= flight.id %>">Add Tickets</a>
+<a href="/tickets/<%= flight.id %>" class="details">Add Tickets</a>
 
 <%- include("../partials/footer") %>

@@ -4,7 +4,7 @@
 
 <form action="/flights" method="POST">
   <label
-    >Airline
+    >Airline<br />
     <select name="airline">
       <option value="" disabled selected>Select the Airline</option>
       <option value="Korean">Korean Air</option>
@@ -13,7 +13,7 @@
     </select> </label
   ><br />
   <label
-    >Airport
+    >Airport<br />
     <select name="airport">
       <option value="" disabled selected>Select the Airport</option>
       <option value="ICN">ICN - Incheon</option>
@@ -23,9 +23,11 @@
       <option value="LHR">LHR - London</option>
     </select> </label
   ><br />
-  <label>Flight No.<input type="number" name="flightNo" /></label><br />
-  <label>Departure Date<input type="date" name="departsDate" /></label><br />
-  <label>Departure Time<input type="time" name="departsTime" /></label><br />
+  <label>Flight No.<br /><input type="number" name="flightNo" /></label><br />
+  <label>Departure Date<br /><input type="date" name="departsDate" /></label
+  ><br />
+  <label>Departure Time<br /><input type="time" name="departsTime" /></label
+  ><br />
   <button type="submit">Save</button>
 </form>
 
