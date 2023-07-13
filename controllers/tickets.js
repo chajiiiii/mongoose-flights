@@ -22,8 +22,7 @@ async function create(req, res) {
   //   } catch (err) {
   //     console.log(err);
   //   }
-
-  res.redirect(`/flights/${flightId}`);
+  res.redirect(`/flights/${flightId._id}`);
 }
 
 // async function create(req, res) {
