@@ -38,6 +38,7 @@
     </tr>
   </tbody>
 </table>
+<a href="/flights/<%= flight.id%>/edit">Edit Flight</a>
 
 <h3>Tickets</h3>
 <table>
@@ -54,7 +55,6 @@
     <% }) %>
   </tbody>
 </table>
-
-<td><a href="/flights/<%= flight.id%>/edit">EDIT</a></td>
+<a href="/tickets/<%= flight.id %>">Add Tickets</a>
 
 <%- include("../partials/footer") %>
